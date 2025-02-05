@@ -1,0 +1,23 @@
+<div [formGroup]="pairForm" class="mb-3">
+ <div class="row g-3">
+   <div class="col-md-6 d-flex align-items-center">
+     <label class="form-label me-2 mb-0">X:</label>
+     <div class="flex-grow-1">
+       <input type="number" class="form-control form-control-sm" formControlName="x" [title]="maxX()">
+       @if (pairForm.get('x')?.errors && pairForm.get('x')?.touched) {
+         <span class="text-danger small">Must be less than {{ maxX() }}</span>
+       }
+     </div>
+   </div>
+
+   <div class="col-md-6 d-flex align-items-center">
+     <label class="form-label me-2 mb-0">Y:</label>
+     <div class="flex-grow-1">
+       <input type="number" class="form-control form-control-sm" formControlName="y">
+       @if (pairForm.get('y')?.errors && pairForm.get('y')?.touched) {
+         <span class="text-danger small">Must be less than {{ maxY() }}</span>
+       }
+     </div>
+   </div>
+ </div>
+</div>
